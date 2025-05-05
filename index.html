@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLearnZed | Next-Generation Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1E7D4E;      /* Zambian Green */
+            --primary-light: #2E9D6E;
+            --secondary: #DD5928;    /* Zambian Orange */
+            --secondary-light: #FF7948;
+            --accent: #CC1A24;       /* Zambian Red */
+            --accent-light: #ED3A44;
+            --dark: #212529;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+        }
+        
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #FFFFFF;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='rgba(255,255,255,.05)' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.5rem;
+            background-color: var(--primary-light);
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .role-card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .role-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .role-card.student {
+            border-top-color: var(--primary);
+        }
+        
+        .role-card.teacher {
+            border-top-color: var(--secondary);
+        }
+        
+        .role-card.admin {
+            border-top-color: var(--accent);
+        }
+        
+        .functional-card {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .functional-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .functional-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .progress-bar {
+            height: 5px;
+            width: 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
+        
+        .bg-gradient-secondary {
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--secondary) 100%);
+        }
+        
+        .collapsible-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .expanded {
+            max-height: 2000px;
+        }
+        
+        .nav-active {
+            color: var(--primary) !important;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Custom bullets */
+        ul.custom-bullets {
+            list-style: none;
+            padding-left: 1rem;
+        }
+        
+        ul.custom-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        ul.custom-bullets li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary);
+        }
+        
+        /* Diagram Styles */
+        .diagram {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+        }
+        
+        .diagram-box {
+            border: 2px solid var(--primary);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            background-color: white;
+        }
+        
+        .diagram-arrow {
+            position: relative;
+            margin: 1rem 0;
+            height: 30px;
+        }
+
+               /* Footer styling */
+               .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-text {
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .diagram-arrow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid var(--primary);
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.5rem;
+            height: 100%;
+            width: 2px;
+            background-color: var(--light-gray);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0.25rem;
+            left: 1.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 2px solid white;
+        }
+        
+        /* Technical section code blocks */
+        .code-block {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        /* Media queries for responsive design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .timeline::before {
+                left: 1rem;
+            }
+            
+            .timeline-item {
+                padding-left: 2.5rem;
+            }
+            
+            .timeline-item::before {
+                left: 0.75rem;
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), #006540);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section {
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        .section:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .card-content {
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-list li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        
+        .sub-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sub-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            border-left: 4px solid var(--primary);
+            padding-left: 0.75rem;
+        }
+        
+        .highlight {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        /* For printing/PDF export */
+        @media print {
+            body {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: white;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                padding: 1rem 0;
+            }
+            
+            h2, h3, h4 {
+                page-break-after: avoid;
+            }
+            
+            table, figure, .diagram {
+                page-break-inside: avoid;
+            }
+            
+            a {
+                color: var(--primary) !important;
+                text-decoration: none !important;
+            }
+        }
+
+        /* Animated background for certain sections */
+        .bg-animated {
+            background: linear-gradient(-45deg, var(--primary-light), var(--secondary-light), var(--primary), var(--secondary));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar no-print" id="progressBar"></div>
+    
+    <!-- Header & Navigation -->
+    <nav class="sticky-nav no-print">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-primary flex items-center" style="color: #CC1A24;">
+                    <i class="fas fa-graduation-cap mr-2"></i>
+                    iLearnZed
+                </span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#vision" class="text-gray-700 hover:text-primary transition-colors">Vision</a>
+                <a href="#user-roles" class="text-gray-700 hover:text-primary transition-colors">User Roles</a>
+                <a href="#functional-areas" class="text-gray-700 hover:text-primary transition-colors">Functionality</a>
+                <a href="#technical" class="text-gray-700 hover:text-primary transition-colors">Technical</a>
+                <a href="#requirements" class="text-gray-700 hover:text-primary transition-colors">Requirements</a>
+            </div>
+            <div class="block md:hidden">
+                <button id="menu-toggle" class="text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-md">
+            <div class="flex flex-col space-y-3">
+                <a href="#vision" class="text-gray-700 hover:text-primary transition-colors py-1">Vision</a>
+                <a href="#user-roles" class="text-gray-700 hover:text-primary transition-colors py-1">User Roles</a>
+                <a href="#functional-areas" class="text-gray-700 hover:text-primary transition-colors py-1">Functionality</a>
+                <a href="#technical" class="text-gray-700 hover:text-primary transition-colors py-1">Technical</a>
+                <a href="#requirements" class="text-gray-700 hover:text-primary transition-colors py-1">Requirements</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="container">
+            <h1 class="logo fade-in" style="color: #cb6e05;">iLearnZed</h1>
+            <p class="subtitle fade-in delay-1">Empowering Zambian Education Through Technology</p>
+        </div>
+    </header>
+
+    <!-- Project Vision -->
+    <section id="vision" class="section bg-light-gray py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Project Vision</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">iLearnZed aims to transform education in Zambia through technology-enabled learning.</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8 fade-in">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/4 mb-4 md:mb-0">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-white text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-3/4">
+                        <h3 class="text-xl font-semibold mb-4">Platform Objective</h3>
+                        <p class="text-gray-700">iLearnZed is a centralized, role-based digital learning hub designed to empower Zambian students, teachers, and administrators by providing accessible, affordable, and personalized academic resources, discussions, and progress tracking. The platform leverages technology to address challenges such as overcrowded classrooms, inadequate infrastructure, and limited access to quality education, fostering a collaborative and inclusive learning community.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                <div class="card bg-white p-6 fade-in" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-universal-access"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Accessibility</h3>
+                    <p class="text-gray-700">Breaking down geographical and economic barriers to quality education across Zambia.</p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in" style="animation-delay: 0.4s;">
+                    <div class="feature-icon" style="background-color: var(--secondary);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Community</h3>
+                    <p class="text-gray-700">Creating a collaborative educational ecosystem connecting students, teachers, and administrators.</p>
+                </div>
+                
+                <div class="card bg-white p-6 fade-in" style="animation-delay: 0.6s;">
+                    <div class="feature-icon" style="background-color: var(--accent);">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Progress</h3>
+                    <p class="text-gray-700">Empowering learners with personalized tracking and feedback on their educational journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Roles -->
+    <section id="user-roles" class="section py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">User Roles & Capabilities</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">iLearnZed serves three primary user types, each with specific capabilities and access levels.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Student Role -->
+                <div class="role-card student p-6 fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 rounded-full bg-primary bg-opacity-10 mb-4">
+                            <i class="fas fa-user-graduate text-3xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary">Student</h3>
+                    </div>
+                    
+                    <ul class="custom-bullets">
+                        <li>Account Creation and Login</li>
+                        <li>Personalized Dashboard</li>
+                        <li>Course Enrollment</li>
+                        <li>Resource Access</li>
+                        <li>Progress Tracking</li>
+                        <li>General Feed Interaction</li>
+                        <li>Course Forums</li>
+                        <li>Notifications</li>
+                        <li>Profile Management</li>
+                        <li>Search Functionality</li>
+                    </ul>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <button class="toggle-details w-full py-2 text-primary font-medium flex justify-between items-center">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="collapsible-section mt-4">
+                            <p class="text-gray-700 mb-4">Students form the primary user base, accessing educational content and engaging with the learning community.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold text-primary mb-2">Key Capabilities:</h4>
+                                <ul class="pl-5 space-y-2">
+                                    <li><span class="font-medium">Enrollment:</span> Browse and join courses by class level and subject</li>
+                                    <li><span class="font-medium">Resources:</span> Access videos, PDFs, slides organized by modules</li>
+                                    <li><span class="font-medium">Progress:</span> Track completion via visual progress bars and statistics</li>
+                                    <li><span class="font-medium">Community:</span> Participate in forums and general feed discussions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher Role -->
+                <div class="role-card teacher p-6 fade-in" style="animation-delay: 0.3s;">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 rounded-full bg-secondary bg-opacity-10 mb-4">
+                            <i class="fas fa-chalkboard-teacher text-3xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary">Teacher</h3>
+                    </div>
+                    
+                    <ul class="custom-bullets">
+                        <li>Specialized Registration/Login</li>
+                        <li>Resource Management</li>
+                        <li>Course Creation</li>
+                        <li>Student Interaction</li>
+                        <li>Analytics</li>
+                        <li>Notifications</li>
+                        <li>Content Moderation</li>
+                        <li>Profile Management</li>
+                    </ul>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <button class="toggle-details w-full py-2 text-secondary font-medium flex justify-between items-center">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="collapsible-section mt-4">
+                            <p class="text-gray-700 mb-4">Teachers create and manage educational content, facilitate discussions, and monitor student progress.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold text-secondary mb-2">Key Capabilities:</h4>
+                                <ul class="pl-5 space-y-2">
+                                    <li><span class="font-medium">Content Creation:</span> Upload, edit and organize academic resources</li>
+                                    <li><span class="font-medium">Course Management:</span> Create and structure courses by modules</li>
+                                    <li><span class="font-medium">Moderation:</span> Flag inappropriate content and manage discussions</li>
+                                    <li><span class="font-medium">Analytics:</span> View student engagement and course progress metrics</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Admin Role -->
+                <div class="role-card admin p-6 fade-in" style="animation-delay: 0.5s;">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-4 rounded-full bg-accent bg-opacity-10 mb-4">
+                            <i class="fas fa-user-shield text-3xl text-accent"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-accent">Admin</h3>
+                    </div>
+                    
+                    <ul class="custom-bullets">
+                        <li>Admin Panel</li>
+                        <li>User Management</li>
+                        <li>Platform Monitoring</li>
+                        <li>Announcements</li>
+                        <li>Analytics</li>
+                        <li>Content Moderation</li>
+                        <li>Site Management</li>
+                    </ul>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <button class="toggle-details w-full py-2 text-accent font-medium flex justify-between items-center">
+                            <span>View Details</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="collapsible-section mt-4">
+                            <p class="text-gray-700 mb-4">Administrators oversee the entire platform, managing users, content, and overall system health.</p>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold text-accent mb-2">Key Capabilities:</h4>
+                                <ul class="pl-5 space-y-2">
+                                    <li><span class="font-medium">User Control:</span> Approve, suspend, or delete accounts; verify teacher credentials</li>
+                                    <li><span class="font-medium">Platform Oversight:</span> View all activity logs and perform content moderation</li>
+                                    <li><span class="font-medium">Analytics:</span> Access platform-wide metrics and usage patterns</li>
+                                    <li><span class="font-medium">Site Configuration:</span> Update landing page content and system settings</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- User Flow Diagram -->
+            <div class="mt-16 diagram fade-in">
+                <h3 class="text-2xl font-bold text-center mb-8">User Interaction Flow</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="diagram-box bg-primary bg-opacity-5 border-primary">
+                        <i class="fas fa-user-graduate text-2xl text-primary mb-3"></i>
+                        <h4 class="font-semibold">Students</h4>
+                        <p class="text-sm text-gray-600">Access & consume content</p>
+                        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2">
+                            <i class="fas fa-arrow-right text-primary transform rotate-45"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-box bg-secondary bg-opacity-5 border-secondary">
+                        <i class="fas fa-chalkboard-teacher text-2xl text-secondary mb-3"></i>
+                        <h4 class="font-semibold">Teachers</h4>
+                        <p class="text-sm text-gray-600">Create & moderate content</p>
+                        <div class="absolute -bottom-3 left-1/4 transform -translate-x-1/2">
+                            <i class="fas fa-arrow-left text-secondary transform rotate-45"></i>
+                        </div>
+                        <div class="absolute -bottom-3 right-1/4 transform translate-x-1/2">
+                            <i class="fas fa-arrow-right text-secondary transform rotate-45"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="diagram-box bg-accent bg-opacity-5 border-accent">
+                        <i class="fas fa-user-shield text-2xl text-accent mb-3"></i>
+                        <h4 class="font-semibold">Administrators</h4>
+                        <p class="text-sm text-gray-600">Manage & oversee platform</p>
+                        <div class="absolute -bottom-3 right-1/2 transform translate-x-1/2">
+                            <i class="fas fa-arrow-left text-accent transform rotate-45"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-10 bg-white rounded-lg border border-gray-200 p-4">
+                    <div class="text-center">
+                        <i class="fas fa-globe-africa text-2xl text-primary mb-2"></i>
+                        <h4 class="font-semibold text-lg">iLearnZed Platform</h4>
+                        <p class="text-sm text-gray-600">A collaborative educational ecosystem</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Functional Areas -->
+    <section id="functional-areas" class="section bg-light-gray py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Core Functional Areas</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">The platform is built around key functional components that work together to create a comprehensive learning environment.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Authentication -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.1s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-primary text-3xl">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Authentication & User Management</h3>
+                            <p class="text-gray-700 mb-4">Secure, role-based access control system.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Registration with role-specific requirements</li>
+                                <li>Secure login/logout functionality</li>
+                                <li>Password reset via email</li>
+                                <li>Role-based permissions system</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-primary mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">Django's authentication system with custom user model, Bootstrap modals for forms, and AJAX for validation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Management -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-secondary text-3xl">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Course Management</h3>
+                            <p class="text-gray-700 mb-4">Comprehensive course creation and enrollment system.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Course creation with modules/topics</li>
+                                <li>Student enrollment system</li>
+                                <li>Module organization</li>
+                                <li>Progress tracking</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-secondary mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">Django models for Course, Module, Resource, and Enrollment entities with Bootstrap-based interfaces.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Learning Resources -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.3s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-primary text-3xl">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Learning Resource System</h3>
+                            <p class="text-gray-700 mb-4">Organized access to educational materials.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Resource organization by course/module</li>
+                                <li>Search and filter capabilities</li>
+                                <li>In-browser resource viewing</li>
+                                <li>Download functionality</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-primary mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">Django Resource model with django-filter for search/filtering and JavaScript for previews.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- General Feed -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.4s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-secondary text-3xl">
+                            <i class="fas fa-stream"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">General Feed</h3>
+                            <p class="text-gray-700 mb-4">Community interaction and information sharing.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Text, question, and resource posting</li>
+                                <li>Comments, reactions, and sharing</li>
+                                <li>Hashtag support for topic tagging</li>
+                                <li>Content moderation tools</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-secondary mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">Django Post model with AJAX for real-time interactions and Bootstrap for responsive layout.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Forums -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.5s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-accent text-3xl">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Course Forums</h3>
+                            <p class="text-gray-700 mb-4">Course-specific academic discussions.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Dedicated forum per course</li>
+                                <li>Threaded discussions</li>
+                                <li>Notification system for replies</li>
+                                <li>Teacher moderation capabilities</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-accent mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">ForumPost model linked to Course and User with JavaScript for real-time updates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Tracking -->
+                <div class="functional-card bg-white p-6 fade-in" style="animation-delay: 0.6s;">
+                    <div class="flex items-start mb-4">
+                        <div class="mr-4 text-primary text-3xl">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Progress Tracking</h3>
+                            <p class="text-gray-700 mb-4">Visual representation of learning achievements.</p>
+                            
+                            <ul class="custom-bullets">
+                                <li>Progress bars for course/module completion</li>
+                                <li>Resource completion tracking</li>
+                                <li>Quiz score monitoring</li>
+                                <li>Completion certificates</li>
+                            </ul>
+                            
+                            <div class="mt-4 pt-4 border-t border-gray-200">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h4 class="font-semibold text-primary mb-2 text-sm">Technical Implementation:</h4>
+                                    <p class="text-sm text-gray-700">Progress tracking model with Chart.js for visualization and certificate generation with reportlab.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Functional Areas -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-lg shadow-sm fade-in" style="animation-delay: 0.7s;">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bell text-2xl text-primary"></i>
+                        <h4 class="text-lg font-semibold mt-2">Notifications System</h4>
+                    </div>
+                    <p class="text-gray-700 text-sm">In-app alerts and optional email notifications for platform activities and updates.</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-sm fade-in" style="animation-delay: 0.8s;">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-chart-pie text-2xl text-secondary"></i>
+                        <h4 class="text-lg font-semibold mt-2">Analytics & Reporting</h4>
+                    </div>
+                    <p class="text-gray-700 text-sm">Comprehensive metrics and exportable reports for administrators to monitor platform usage.</p>
+                </div>
+                
+                <div class="bg-white p-5 rounded-lg shadow-sm fade-in" style="animation-delay: 0.9s;">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-accent"></i>
+                        <h4 class="text-lg font-semibold mt-2">Content Moderation</h4>
+                    </div>
+                    <p class="text-gray-700 text-sm">Tools for reporting, reviewing, and managing inappropriate content to maintain platform quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section id="technical" class="section py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Implementation</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">The platform leverages modern technologies to deliver a robust, scalable educational experience.</p>
+            </div>
+            
+            <!-- Technical Stack -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-12 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-primary">Technical Stack</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-server text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">Backend</h4>
+                        </div>
+                        <ul class="custom-bullets ml-16">
+                            <li>Django 5.x framework</li>
+                            <li>PostgreSQL database</li>
+                            <li>Django REST Framework (future API)</li>
+                            <li>Redis for caching</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-secondary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-secondary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">Frontend</h4>
+                        </div>
+                        <ul class="custom-bullets ml-16">
+                            <li>HTML5 and CSS3</li>
+                            <li>Bootstrap 5 for responsive design</li>
+                            <li>JavaScript for dynamic interactions</li>
+                            <li>Chart.js for data visualization</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-accent bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-cloud text-accent"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">Infrastructure</h4>
+                        </div>
+                        <ul class="custom-bullets ml-16">
+                            <li>Docker for containerization</li>
+                            <li>Gunicorn/Nginx for production</li>
+                            <li>AWS or Heroku for hosting</li>
+                            <li>AWS S3 for file storage</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                <i class="fas fa-puzzle-piece text-primary"></i>
+                            </div>
+                            <h4 class="text-lg font-semibold">Additional Libraries</h4>
+                        </div>
+                        <ul class="custom-bullets ml-16">
+                            <li>django-filter for search functionality</li>
+                            <li>django-notifications-hq for alerts</li>
+                            <li>reportlab for PDF generation</li>
+                            <li>django-tables2 for admin analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Structure -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-12 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-primary">Django Project Structure</h3>
+                
+                <div class="code-block">
+                    <pre>
+iLearnZed/
+├── users/              # Authentication, profiles
+├── courses/            # Course/resource management
+├── feed/               # General Feed
+├── forums/             # Course forums
+├── notifications/      # Notification system
+├── analytics/          # Admin analytics
+├── moderation/         # Content moderation
+├── static/             # Static files (CSS, JS)
+└── templates/          # HTML templates
+                    </pre>
+                </div>
+                
+                <div class="mt-8">
+                    <h4 class="text-lg font-semibold mb-4">Implementation Notes:</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">Frontend Design</h5>
+                            <ul class="text-sm space-y-2">
+                                <li>Bootstrap navbar for navigation with role-based menus</li>
+                                <li>Card-based layouts for courses and resources</li>
+                                <li>Modals for forms (login, uploads, etc.)</li>
+                                <li>Zambian cultural elements in design</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">Performance Optimization</h5>
+                            <ul class="text-sm space-y-2">
+                                <li>Lazy-loading for media resources</li>
+                                <li>Django's caching framework for frequent data</li>
+                                <li>Compressed static files</li>
+                                <li>CDN for performance improvement</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">Security Measures</h5>
+                            <ul class="text-sm space-y-2">
+                                <li>File upload validation (size, type)</li>
+                                <li>Rate limiting to prevent abuse</li>
+                                <li>Regular database backups</li>
+                                <li>CSRF protection and secure password hashing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">Scalability Approach</h5>
+                            <ul class="text-sm space-y-2">
+                                <li>Cloud hosting with auto-scaling</li>
+                                <li>Database query optimization</li>
+                                <li>Horizontal scaling capability</li>
+                                <li>CDN for static content delivery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-Functional Requirements -->
+    <section id="requirements" class="section bg-light-gray py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Non-Functional Requirements</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">Essential quality attributes that ensure the platform's success beyond pure functionality.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Mobile Responsiveness -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-mobile-alt text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Mobile Responsiveness</h3>
+                    <p class="text-gray-700">Fully responsive design using Bootstrap 5, tested across mobile browsers for optimal experience on all devices.</p>
+                </div>
+                
+                <!-- Performance -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-tachometer-alt text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Performance</h3>
+                    <p class="text-gray-700">Page load time ≤ 3 seconds, optimized Django queries, and CDN for static files to ensure smooth experience.</p>
+                </div>
+                
+                <!-- Security -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.3s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Security</h3>
+                    <p class="text-gray-700">HTTPS encryption, CSRF protection, secure password hashing, and input sanitization to prevent vulnerabilities.</p>
+                </div>
+                
+                <!-- Scalability -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.4s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-expand-arrows-alt text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Scalability</h3>
+                    <p class="text-gray-700">Designed to handle 1,000+ concurrent users with Redis caching and PostgreSQL for optimal database performance.</p>
+                </div>
+                
+                <!-- Accessibility -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.5s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-universal-access text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Accessibility</h3>
+                    <p class="text-gray-700">WCAG 2.1 compliant with ARIA labels, keyboard navigation, and other accessibility features for inclusivity.</p>
+                </div>
+                
+                <!-- Localization -->
+                <div class="bg-white rounded-lg shadow-sm p-6 fade-in" style="animation-delay: 0.6s;">
+                    <div class="text-center mb-4">
+                        <div class="inline-block p-3 rounded-full bg-primary bg-opacity-10">
+                            <i class="fas fa-language text-2xl text-primary"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-center">Localization</h3>
+                    <p class="text-gray-700">Initial English language support with planned expansion to include Zambian languages in future phases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional Features -->
+    <section class="section py-16 bg-animated text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Future Enhancements</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                <p class="max-w-3xl mx-auto">Planned features to enhance the platform in future development phases.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-bold mb-2">Phase 2: Gamification</h3>
+                    <p class="mb-2">Points for completing resources, badges for milestones, and leaderboards for top students.</p>
+                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm"><i class="fas fa-code mr-2"></i>Implementation: Django model for Points and Badges with Bootstrap for display</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-2">Phase 2: Dark Mode</h3>
+                    <p class="mb-2">Toggleable dark theme for better accessibility and reduced eye strain.</p>
+                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm"><i class="fas fa-code mr-2"></i>Implementation: CSS variables with Bootstrap and JavaScript theme switching</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-bold mb-2">Phase 3: Chat System</h3>
+                    <p class="mb-2">Real-time messaging functionality for direct student-teacher interaction.</p>
+                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm"><i class="fas fa-code mr-2"></i>Implementation: Django Channels with WebSockets and Bootstrap chat UI</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-bold mb-2">Phase 3: Offline Resource Access</h3>
+                    <p class="mb-2">Cache resources for offline access in areas with limited connectivity.</p>
+                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm"><i class="fas fa-code mr-2"></i>Implementation: JavaScript service workers for Progressive Web App functionality</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in" style="animation-delay: 0.5s;">
+                    <h3 class="text-xl font-bold mb-2">Phase 4: Mobile App</h3>
+                    <p class="mb-2">Native mobile application for enhanced performance and features.</p>
+                    <div class="bg-white bg-opacity-20 p-3 rounded-lg">
+                        <p class="text-sm"><i class="fas fa-code mr-2"></i>Implementation: Django REST Framework API with React Native frontend</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics & Risks -->
+    <section class="section py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Success Metrics -->
+                <div class="fade-in" style="animation-delay: 0.1s;">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">Success Metrics</h2>
+                    
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="bg-primary text-white py-3 px-6">
+                            <h3 class="font-semibold">Key Performance Indicators</h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                        <i class="fas fa-users text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">User Adoption</h4>
+                                        <p class="text-gray-700 text-sm">1,000 active users within 6 months of launch</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                        <i class="fas fa-hand-point-up text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Engagement</h4>
+                                        <p class="text-gray-700 text-sm">Average of 5 interactions per user per week</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                        <i class="fas fa-tachometer-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Performance</h4>
+                                        <p class="text-gray-700 text-sm">95% of pages load within 3 seconds</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                        <i class="fas fa-user-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Retention</h4>
+                                        <p class="text-gray-700 text-sm">70% user retention rate after 3 months</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mr-4">
+                                        <i class="fas fa-check-circle text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Content Quality</h4>
+                                        <p class="text-gray-700 text-sm">&lt;1% of posts flagged as inappropriate</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Risks & Mitigation -->
+                <div class="fade-in" style="animation-delay: 0.3s;">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">Risks & Mitigation</h2>
+                    
+                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                        <div class="bg-primary text-white py-3 px-6">
+                            <h3 class="font-semibold">Identified Challenges & Solutions</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-exclamation-triangle text-secondary mr-3"></i>
+                                        <h4 class="font-semibold">Limited Internet Access</h4>
+                                    </div>
+                                    <p class="text-gray-700 text-sm ml-8 mb-2">Rural areas in Zambia may have limited connectivity.</p>
+                                    <div class="bg-gray-50 p-3 rounded-lg ml-8">
+                                        <p class="text-sm"><i class="fas fa-shield-alt text-primary mr-2"></i><strong>Mitigation:</strong> USSD integration for basic access; partnerships with telecoms for subsidized data.</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-exclamation-triangle text-secondary mr-3"></i>
+                                        <h4 class="font-semibold">Digital Literacy Barriers</h4>
+                                    </div>
+                                    <p class="text-gray-700 text-sm ml-8 mb-2">Users may have varying levels of technology experience.</p>
+                                    <div class="bg-gray-50 p-3 rounded-lg ml-8">
+                                        <p class="text-sm"><i class="fas fa-shield-alt text-primary mr-2"></i><strong>Mitigation:</strong> Onboarding tutorials and community training sessions.</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-exclamation-triangle text-secondary mr-3"></i>
+                                        <h4 class="font-semibold">Scalability Challenges</h4>
+                                    </div>
+                                    <p class="text-gray-700 text-sm ml-8 mb-2">Potential performance issues with growing user base.</p>
+                                    <div class="bg-gray-50 p-3 rounded-lg ml-8">
+                                        <p class="text-sm"><i class="fas fa-shield-alt text-primary mr-2"></i><strong>Mitigation:</strong> Cloud hosting with auto-scaling; optimized database queries.</p>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center mb-2">
+                                        <i class="fas fa-exclamation-triangle text-secondary mr-3"></i>
+                                        <h4 class="font-semibold">Academic Dishonesty</h4>
+                                    </div>
+                                    <p class="text-gray-700 text-sm ml-8 mb-2">Potential for cheating in online assessments.</p>
+                                    <div class="bg-gray-50 p-3 rounded-lg ml-8">
+                                        <p class="text-sm"><i class="fas fa-shield-alt text-primary mr-2"></i><strong>Mitigation:</strong> Randomized questions; time limits; proctoring for premium users.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">iLearnZed - Empowering Zambian Education Through Technology</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">© 2023 iLearnZed. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Progress bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+            
+            // Navigation highlighting
+            const sections = document.querySelectorAll('section[id]');
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (winScroll >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('.sticky-nav a').forEach(link => {
+                link.classList.remove('nav-active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('nav-active');
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Collapsible sections
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const section = this.nextElementSibling;
+                section.classList.toggle('expanded');
+                const icon = this.querySelector('i');
+                if (section.classList.contains('expanded')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                    this.querySelector('span').textContent = 'Hide Details';
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                    this.querySelector('span').textContent = 'View Details';
+                }
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = "1";
+                    element.style.transform = "translateY(0)";
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        window.addEventListener('load', fadeInOnScroll);
+        
+        // Add smooth scrolling to all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
